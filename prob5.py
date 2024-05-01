@@ -1,5 +1,4 @@
 from typing import List
-import time
 
 
 def parse_list_of_ints(in_string: str) -> List[int]:
@@ -12,9 +11,6 @@ class ShiftInterval:
         self.source_start = source_start
         self.source_end = source_end
         self.shift = destination_start - source_start
-    
-    def __str__(self) -> str:
-        return "ShiftInterval, shift=" + str(self.shift) + ", source_start=" + str(self.source_start) + ", source_end=" + str(self.source_end)
 
 
 class Mapping:
@@ -41,7 +37,7 @@ class OverallMapping:
         return mapped_number
     
 
-def part5a(overall_mapping, seeds_int):
+def part5a(overall_mapping: OverallMapping, seeds_int: List[int]):
     minimum = 1000000000000
     for i in range(len(seeds_int)):
         seed = seeds_int[i]
@@ -51,7 +47,7 @@ def part5a(overall_mapping, seeds_int):
     print(str("minimum"))
 
 
-def part5b(overall_mapping, seeds_int):
+def part5b(overall_mapping: OverallMapping, seeds_int: List[int]):
     total_numbers_to_check = sum([seed for i, seed in enumerate(seeds_int) if i % 2 != 0])
     print(f"{total_numbers_to_check=}")
 
